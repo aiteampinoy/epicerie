@@ -1,0 +1,20 @@
+.form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.required-label:after {
+    content: " *";
+    color: #dc3545;
+}
+
+.side-by-side {
+    display: flex;
+    gap: 20px; /* space between containers */
+}
+
+.side-by-side > div {
+    flex: 1; /* makes both containers take equal width */
+}

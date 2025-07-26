@@ -1,0 +1,28 @@
+Creating the landing page '/'
+=====
+    1. in homeprj.urls
+    --> Add the 'include' module as from django.urls.py as indicated
+            from django.urls import path, include
+
+    --> Then add the path "path('/', include(homeapp.urls)" in project urls
+            urlpatterns = [
+                path('admin/', admin.site.urls),
+                path('/', include('homeapp.urls'))
+            ]
+
+
+    2. in homeapp
+    --> Create urls.py if it does not exist
+    --> Enter the following if it is new:
+            from django.urls import path
+            from django.contrib.auth import views as auth_views  # Import auth_views for logout
+            from . import views
+
+            urlpatterns = [
+                path('', views.home, name='home'),
+            ]
+        # where views.home is a module in views.py
+    --> update views.py
+            from django.shortcuts import render, redirect
+            def home(request):
+                return render(request, 'app1/home.html')

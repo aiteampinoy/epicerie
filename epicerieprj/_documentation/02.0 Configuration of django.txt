@@ -1,0 +1,115 @@
+the following is the default after steps 01.0
+    BASE DIR    # the base dir is where the manage.py is installed.
+                # In this case it is 'D:\_alltechwebserver\homeprj'
+    
+    Location of database is in BASE DIR.
+
+the following needs to be configured:
+    a) IP Address of the host instead of 127.0.0.1
+        import socket
+
+        def get_local_ip():
+            try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                s.connect(('8.8.8.8', 80))
+                ip = s.getsockname()[0]
+                s.close()
+                return ip
+            except Exception:
+                return '127.0.0.1'
+
+        IP = get_local_ip()
+        ALLOWED_HOSTS = [IP,'localhost','127.0.0.1']
+
+
+    b) Database path is under BASE DIR / db
+        -> create the folder 'db' at the same level as manage.py
+        -> add 'db/' to the DATABASE entry in settings.py
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': BASE_DIR / 'db/db.sqlite3',
+                }
+            }
+        -> restart the program
+        -> Check the browser http://127.0.0.1:8000/
+    
+    c) update the 'static' link in settings.py
+        STATIC_URL = 'static/'
+        STATICFILES_DIRS = [BASE_DIR / "static"]
+
+    d) update the 'template' link in settings.py
+        'DIRS': [BASE_DIR / "templates"],
+
+    e) create a folder 'library' in the BASE_DIR
+        --> in BASE_DIR, execute the command 'md library'
+        --> cd library
+        --> create the file '__init__.py'   # the __init__.py makes the folder a python library
+        --> move the library apps here like my_module.py, utils.py etc.
+        
+        to access the library, add this to the apps:
+            'from library.my_module import my_function'
+            
+            # where 'my_function' is a module inside the file 'my_module.py' 
+
+With the changes, here is the updated folder structure:
+
+    homeprj\
+    ├── manage.py
+    ├── homeapp\
+    │   ├── migrations\
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── views.py
+    │   ├── __init__.py
+    │
+    ├── homeprj\
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   ├── wsgi.py
+    │   ├── __init__.py
+    │
+    ├── templates/
+    │   ├── base.html                # Base template for the project
+    │   ├── includes/                # Reusable template snippets (e.g., headers, footers)
+    │   │   ├── header.html
+    │   │   ├── footer.html
+    │   │   └── sidebar.html
+    │   ├── app1/                    # Templates specific to an app (e.g., app1)
+    │   │   ├── index.html
+    │   │   ├── detail.html
+    │   │   └── form.html
+    │   ├── app2/                    # Templates specific to another app (e.g., app2)
+    │   │   ├── index.html
+    │   │   └── detail.html
+    │   └── registration/            # Templates for authentication (e.g., login, signup)
+    │       ├── login.html
+    │       ├── signup.html
+    │       └── password_reset.html
+    │
+    ├── static/
+    │   ├── css/                     # CSS files
+    │   │   ├── styles.css
+    │   │   └── bootstrap.min.css
+    │   ├── js/                      # JavaScript files
+    │   │   ├── main.js
+    │   │   └── scripts.js
+    │   ├── images/                  # Image files
+    │   │   ├── logo.png
+    │   │   └── background.jpg
+    │   ├── fonts/                   # Font files (e.g., for custom typography)
+    │   │   ├── fontawesome.woff2
+    │   │   └── customfont.woff
+    │   └── app1/                    # Static files specific to an app (e.g., app1)
+    │       ├── css/
+    │       │   └── app1_styles.css
+    │       └── images/
+    │           └── app1_logo.png
+    │
+    ├── library/    # contains normally used library
+    │   ├── __init__.py
+    │   ├── my_module.py
+    │   └── utils.py

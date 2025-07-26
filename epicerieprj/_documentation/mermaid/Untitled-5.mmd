@@ -1,0 +1,39 @@
+---
+id: bf4615d5-a349-4b29-9f17-029ab169f12a
+---
+erDiagram
+    ITEM ||--o{ PRODUCT_WARRANTY : "has"
+    SUPPLIER ||--o{ PRODUCT_WARRANTY : "provides"
+    CLIENT ||--o{ PRODUCT_WARRANTY : "receives"
+
+    PRODUCT_WARRANTY {
+        integer Warranty_ID PK
+        integer Item_Index FK
+        text Serial_Number
+        text Supplier_TIN FK
+        text Client_TIN FK
+        date Purchase_Date
+        date Warranty_Start_Date
+        date Warranty_End_Date
+        text Warranty_Terms
+        text Warranty_Status
+    }
+
+    ITEM {
+        integer Item_Index PK
+        text Item_Code
+        text Item_Description
+        text Supplier
+    }
+
+    SUPPLIER {
+        text Supplier_TIN PK
+        text Supplier_Name
+        text Contact_Information
+    }
+
+    CLIENT {
+        text Client_TIN PK
+        text Client_Name
+        text Contact_Information
+    }

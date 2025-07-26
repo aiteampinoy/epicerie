@@ -1,0 +1,10 @@
+To get all the libraries in your Python virtual environment and save them to a requirements.txt file, you can use the pip freeze command:
+
+pip freeze > requirements.txt
+
+
+
+===
+install these packages in another environment later
+
+pip install -r requirements.txt

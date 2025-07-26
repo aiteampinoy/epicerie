@@ -1,0 +1,51 @@
+flowchart TD
+    subgraph main["Philippine Supplier and Product Management System"]
+        A[Start] --> B[Login]
+        B --> C{Authentication}
+        C -->|Success| D[Main Dashboard]
+        C -->|Failure| B
+        
+        D --> E[Supplier Management]
+        D --> F[Products Management]
+        D --> G[Catalog Management]
+        D --> H[Reports]
+        
+        %% Supplier Management Flow
+        E --> E1[View Suppliers]
+        E --> E2[Add New Supplier]
+        E --> E3[Edit Supplier]
+        E --> E4[Deactivate/Activate Supplier]
+        
+        E2 --> E2a[Enter Basic Information]
+        E2a --> E2b[Add Addresses]
+        E2b --> E2c[Add Contact Numbers]
+        E2c --> E2d[Add Email Addresses]
+        E2d --> E2e[Add Contact Persons]
+        E2e --> E2f[Save Supplier]
+        E2f --> E1
+        
+        E3 --> E3a[Update Supplier Info]
+        E3a --> E3b[Manage Addresses]
+        E3b --> E3c[Manage Contact Numbers]
+        E3c --> E3d[Manage Email Addresses]
+        E3d --> E3e[Manage Contact Persons]
+        E3e --> E3f[Save Changes]
+        E3f --> E1
+        
+        E4 --> E4a[Confirm Status Change]
+        E4a --> E1
+        
+        %% Products Management Flow
+        F --> F1[View Products]
+        F --> F2[Add New Product]
+        F --> F3[Edit Product]
+        F --> F4[Deactivate/Activate/Discontinue Product]
+        
+        F2 --> F2a[Enter Product Details]
+        F2a --> F2b[Save Product]
+        F2b --> F1
+        
+        F3 --> F3a[Update Product Details]
+        F3a --> F3b[Save Changes]
+        F3b --> F1
+        

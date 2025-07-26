@@ -1,0 +1,76 @@
+%% Use Case Diagram
+%% Note: Standard Mermaid doesn't have a dedicated "useDiagram" type
+%% Converting to flowchart with appropriate styling
+
+flowchart TB
+    %% Actors
+    User[System User]
+    Admin[Administrator]
+    
+    %% Admin inherits from User
+    Admin -->|inherits from| User
+    
+    %% Supplier Management Use Cases
+    subgraph SupplierMgmt[Supplier Management]
+        ViewSuppliers(View Suppliers)
+        SearchSuppliers(Search Suppliers)
+        AddSupplier(Add New Supplier)
+        EditSupplier(Edit Supplier Details)
+        ManageAddresses(Manage Supplier Addresses)
+        ManageContacts(Manage Supplier Contact Numbers)
+        ManageEmails(Manage Supplier Emails)
+        ManageContactPersons(Manage Supplier Contact Persons)
+        SetSupplierStatus(Set Supplier Status Active/Inactive)
+    end
+    
+    %% Product Management Use Cases
+    subgraph ProductMgmt[Product Management]
+        ViewProducts(View Products)
+        SearchProducts(Search Products)
+        AddProduct(Add New Product)
+        EditProduct(Edit Product Details)
+        SetProductStatus(Set Product Status Active/Inactive/Discontinued)
+    end
+    
+    %% Pricing Management Use Cases
+    subgraph PricingMgmt[Pricing Management]
+        ViewPrices(View Product Prices by Supplier)
+        ViewPriceHistory(View Price History)
+        ManagePrices(Add/Update Supplier Product Price)
+        ManageSuppliers(Manage Suppliers)
+        ManageProducts(Manage Products)
+        
+        ManagePrices --> ManageSuppliers
+        ManagePrices --> ManageProducts
+    end
+    
+    %% Reporting & Utilities
+    subgraph ReportingUtil[Reporting & Utilities]
+        SupplierReport(Generate Supplier List Report)
+        ProductReport(Generate Product Catalog Report)
+        SysConfig(System Configuration)
+    end
+    
+    %% User Connections
+    User --- ViewSuppliers
+    User --- SearchSuppliers
+    User --- ViewProducts
+    User --- SearchProducts
+    User --- ViewPrices
+    User --- ViewPriceHistory
+    User --- SupplierReport
+    User --- ProductReport
+    
+    %% Admin Connections
+    Admin --- AddSupplier
+    Admin --- EditSupplier
+    Admin --- ManageAddresses
+    Admin --- ManageContacts
+    Admin --- ManageEmails
+    Admin --- ManageContactPersons
+    Admin --- SetSupplierStatus
+    Admin --- AddProduct
+    Admin --- EditProduct
+    Admin --- SetProductStatus
+    Admin --- ManagePrices
+    Admin --- SysConfig

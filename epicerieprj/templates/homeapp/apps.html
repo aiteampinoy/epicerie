@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>1</h1>
+    <h1>Applications</h1>
+    <ul>
+        <li><a href="{% url 'attendance' %}">Attendance</a></li>
+        <li><a href="{% url 'payroll' %}">Payroll</a></li>
+        <li><a href="{% url 'tasks' %}">Task Management</a></li>
+        <li><a href="{% url 'inventory' %}">Inventory</a></li>
+        <li><a href="{% url 'grocery' %}">Online Grocery</a></li>
+    </ul>
+</div>
+
+{%endblock%}

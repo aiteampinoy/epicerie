@@ -1,0 +1,33 @@
+%% System Component Diagram
+%% Using standard Mermaid flowchart syntax
+
+flowchart TD
+    %% User Interface Layer
+    subgraph UI[User Interface Layer]
+        UI_Web[Web/Desktop Application]
+    end
+    
+    %% Application Server Layer
+    subgraph AppServer[Application Server]
+        App_Logic[Business Logic Layer]
+        Data_Access[Data Access Layer]
+    end
+    
+    %% Database Layer
+    subgraph DB_Server[Database Server]
+        DB[(MS SQL Database)]
+    end
+    
+    %% Connections
+    UI_Web --> App_Logic
+    App_Logic --> Data_Access
+    Data_Access --> DB
+    
+    %% Styling
+    classDef uiStyle fill:#ccf,stroke:#333,stroke-width:2px,color:#000
+    classDef appStyle fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    classDef dbStyle fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    
+    class UI_Web uiStyle
+    class App_Logic,Data_Access appStyle
+    class DB dbStyle

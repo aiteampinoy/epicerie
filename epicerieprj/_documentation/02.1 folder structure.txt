@@ -1,0 +1,112 @@
+notes:
+homeprj (root)<-- The root folder of the entire project
+
+homeprj (inside the root) <-- This is the project folder. It contains the configuration files of the entire django
+
+homeapp (inside the root) <-- This is the app folder of the project. It contains the .py files of the python django application. 'urls.py' in this folder set the link of the individual application and html. views.py'. views.py and urls.py are the most important files as a beginner
+
+====
+views.py  
+Purpose:
+- Contains functions (or classes) called views that process user requests (like loading a webpage or submitting a form).
+
+What it does:
+- Fetches data from the database (via models).
+- Renders HTML templates (or returns JSON in APIs).
+- Handles form submissions, user authentication, etc.
+
+====
+
+urls.py   <-- this is the file that contains the link of the application.
+
+Purpose:
+- Defines URL patterns for your app/website.
+
+What it does:
+- Matches a browser request (e.g., /about/) to the correct view function.
+- Can include dynamic URLs (e.g., /posts/1/, /user/john/).
+
+Example:
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('post/<int:id>/', views.post_detail, name='post_detail'),
+]
+
+====
+
+
+
+settings.py <-- Contains the configurations such as folder location of the templates, and styles (inside STATIC)
+
+urls.py (inside the project folder) <-- contains the link of the app root folder
+
+
+
+
+homeprj\
+├── manage.py
+├── homeapp\
+│   ├── migrations\
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   ├── __init__.py
+│
+├── homeprj\
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   ├── __init__.py
+│
+├── templates/
+│   ├── base.html                # Base template for the project
+│   ├── includes/                # Reusable template snippets (e.g., headers, footers)
+│   │   ├── header.html
+│   │   ├── footer.html
+│   │   └── sidebar.html
+│   ├── homeapp/                    # Templates specific to an app (e.g., app1)
+│   │   ├── index.html
+│   │   ├── applications.html
+│   │   ├── detail.html
+│   │   │   └── form.html    
+│   └── registration/            # Templates for authentication (e.g., login, signup)
+│       ├── login.html
+│       ├── signup.html
+│       └── password_reset.html
+│
+├── static/
+│   ├── css/                     # CSS files
+│   │   ├── styles.css
+│   │   ├── fonts.css
+│   │   └── bootstrap.min.css
+│   ├── js/                      # JavaScript files
+│   │   ├── main.js
+│   │   ├── jquery-3.5.1.slim.min.js
+│   │   ├── popper.min.js
+│   │   ├── bootstrap.min.js
+│   │   └── scripts.js
+│   ├── images/                  # Image files
+│   │   ├── hero-bg.jpg
+│   │   ├── logo.png
+│   │   └── background.jpg
+│   ├── fonts/                   # Font files (e.g., for custom typography)
+│   │   ├── pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2
+│   │   ├── pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2
+│   │   ├── pxiEyp8kv8JHgFVrJJfecg.woff2
+│   │   ├── pxiEyp8kv8JHgFVrJJnecmNE.woff2
+│   │   ├── fontawesome.woff2
+│   │   └── customfont.woff
+│
+├── library/    # contains normally used library
+│   ├── __init__.py
+│   ├── my_module.py
+│   └── utils.py

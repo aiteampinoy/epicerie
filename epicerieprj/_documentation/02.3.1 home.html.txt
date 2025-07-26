@@ -1,0 +1,47 @@
+<!-- templates/homeapp/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Home Landing Page</title>
+    <!-- Load static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homeapp/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'homeapp/css/fonts.css' %}">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Fancy Landing Page</h1>
+            <p>Your journey to amazing experiences starts here.</p>
+            <a href="#features" class="btn">Explore More</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="feature-item">
+            <h2>Feature One</h2>
+            <p>Discover the first amazing feature of our product.</p>
+        </div>
+        <div class="feature-item">
+            <h2>Feature Two</h2>
+            <p>Explore the second incredible feature of our product.</p>
+        </div>
+        <div class="feature-item">
+            <h2>Feature Three</h2>
+            <p>Learn about the third fantastic feature of our product.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Fancy Landing Page. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{% static 'homeapp/js/scripts.js' %}"></script>
+</body>
+</html>

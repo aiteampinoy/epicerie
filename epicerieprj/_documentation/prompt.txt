@@ -1,0 +1,15 @@
+Entry of Receipt
+
+Add this as a dropdown
+	FOODSTUFF - PERSONAL RECEIPT
+
+
+Create Purchases
+Create Inventory
+Create Supplier Entry
+Create Products Database
+Entry for Cash Voucher
+update OneDrive
+
+
+Make the website secure. Use prompt 'How to make local site secure in python flask and python django

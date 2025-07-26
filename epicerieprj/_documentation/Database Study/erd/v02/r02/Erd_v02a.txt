@@ -1,0 +1,73 @@
+erDiagram
+    Suppliers {
+        int SupplierID PK "Identity"
+        varchar TIN "Unique, Not Null"
+        varchar CompanyName "Not Null"
+        datetime2 DateCreated "Not Null, Default GETDATE()"
+        datetime2 DateUpdated "Not Null, Default GETDATE(), Trigger for update"
+        varchar Status "Not Null, Default 'Active', CHECK('Active','Inactive')"
+    }
+    SupplierAddresses {
+        int AddressID PK "Identity"
+        int SupplierID FK "References Suppliers.SupplierID"
+        varchar AddressLine1 "Not Null"
+        varchar AddressLine2
+        varchar Barangay
+        varchar CityMunicipality "Not Null"
+        varchar Province "Not Null"
+        varchar PostalCode
+        varchar Region
+        varchar AddressType
+        bit IsPrimary "Not Null, Default 0"
+    }
+    SupplierContactNumbers {
+        int ContactNumberID PK "Identity"
+        int SupplierID FK "References Suppliers.SupplierID"
+        varchar ContactNumber "Not Null"
+        varchar NumberType
+        bit IsPrimary "Not Null, Default 0"
+    }
+    SupplierEmailAddresses {
+        int EmailAddressID PK "Identity"
+        int SupplierID FK "References Suppliers.SupplierID"
+        varchar EmailAddress "Not Null"
+        varchar EmailType
+        bit IsPrimary "Not Null, Default 0"
+    }
+    ContactPersons {
+        int ContactPersonID PK "Identity"
+        int SupplierID FK "References Suppliers.SupplierID"
+        varchar FirstName "Not Null"
+        varchar LastName "Not Null"
+        varchar Position
+        varchar EmailAddress
+        varchar ContactNumber
+        datetime2 DateCreated "Not Null, Default GETDATE()"
+        datetime2 DateUpdated "Not Null, Default GETDATE(), Trigger for update"
+        varchar Status "Not Null, Default 'Active', CHECK('Active','Inactive')"
+    }
+    Products {
+        int ProductID PK "Identity or VARCHAR SKU"
+        varchar ProductName "Unique, Not Null"
+        text ProductDescription
+        varchar Category
+        varchar UnitOfMeasure
+        datetime2 DataEntryDate "Not Null, Default GETDATE()"
+        varchar Status "Not Null, Default 'Active', CHECK('Active','Inactive','Discontinued')"
+    }
+    SupplierProductCatalog {
+        int SupplierProductCatalogID PK "Identity"
+        int SupplierID FK "References Suppliers.SupplierID"
+        int ProductID FK "References Products.ProductID"
+        decimal DealersPrice "Not Null (Ex-EVAT)"
+        date PriceEntryDate "Not Null"
+        varchar SupplierProductCode
+        text Notes
+    }
+    
+    Suppliers ||--o{ SupplierAddresses : has
+    Suppliers ||--o{ SupplierContactNumbers : has
+    Suppliers ||--o{ SupplierEmailAddresses : has
+    Suppliers ||--o{ ContactPersons : has
+    Suppliers ||--o{ SupplierProductCatalog : "provides pricing for"
+    Products ||--o{ SupplierProductCatalog : "has pricing from"

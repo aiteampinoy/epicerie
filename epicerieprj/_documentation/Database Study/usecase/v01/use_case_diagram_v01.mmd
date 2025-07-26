@@ -1,0 +1,176 @@
+graph TD
+    User((User))
+    Admin((Admin))
+
+    %% Common use cases
+    UC1[Login to System]
+    UC2[Logout of System]
+    UC3[Change Password]
+    UC4[View Dashboard]
+
+    %% Supplier Management
+    SM1[View Supplier List]
+    SM2[Search Suppliers]
+    SM3[Add New Supplier]
+    SM4[Edit Supplier Details]
+    SM5[Deactivate Supplier]
+    SM6[Activate Supplier]
+    SM7[Add Supplier Address]
+    SM8[Edit Supplier Address]
+    SM9[Set Primary Address]
+    SM10[Add Contact Number]
+    SM11[Edit Contact Number]
+    SM12[Set Primary Contact Number]
+    SM13[Add Email Address]
+    SM14[Edit Email Address]
+    SM15[Set Primary Email Address]
+    SM16[Add Contact Person]
+    SM17[Edit Contact Person]
+    SM18[Deactivate Contact Person]
+    SM19[Activate Contact Person]
+
+    %% Product Management
+    PM1[View Product List]
+    PM2[Search Products]
+    PM3[Add New Product]
+    PM4[Edit Product Details]
+    PM5[Deactivate Product]
+    PM6[Activate Product]
+    PM7[Discontinue Product]
+
+    %% Catalog Management
+    CM1[View Supplier Catalog]
+    CM2[Add Product to Supplier]
+    CM3[Update Product Price]
+    CM4[View Price History]
+
+    %% Reporting
+    R1[Generate Supplier Directory]
+    R2[Generate Product Catalog]
+    R3[Generate Price Comparison Report]
+    R4[Generate Price History Report]
+    R5[Export Reports]
+    R6[Print Reports]
+
+    %% Connect users to use cases
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+
+    User --> SM1
+    User --> SM2
+    
+    User --> PM1
+    User --> PM2
+    
+    User --> CM1
+    User --> CM4
+
+    User --> R1
+    User --> R2
+    User --> R3
+    User --> R4
+    User --> R5
+    User --> R6
+
+    Admin --> UC1
+    Admin --> UC2
+    Admin --> UC3
+    Admin --> UC4
+
+    Admin --> SM1
+    Admin --> SM2
+    Admin --> SM3
+    Admin --> SM4
+    Admin --> SM5
+    Admin --> SM6
+    Admin --> SM7
+    Admin --> SM8
+    Admin --> SM9
+    Admin --> SM10
+    Admin --> SM11
+    Admin --> SM12
+    Admin --> SM13
+    Admin --> SM14
+    Admin --> SM15
+    Admin --> SM16
+    Admin --> SM17
+    Admin --> SM18
+    Admin --> SM19
+
+    Admin --> PM1
+    Admin --> PM2
+    Admin --> PM3
+    Admin --> PM4
+    Admin --> PM5
+    Admin --> PM6
+    Admin --> PM7
+
+    Admin --> CM1
+    Admin --> CM2
+    Admin --> CM3
+    Admin --> CM4
+
+    Admin --> R1
+    Admin --> R2
+    Admin --> R3
+    Admin --> R4
+    Admin --> R5
+    Admin --> R6
+
+    %% Group related use cases
+    subgraph "Authentication & General"
+        UC1
+        UC2
+        UC3
+        UC4
+    end
+
+    subgraph "Supplier Management"
+        SM1
+        SM2
+        SM3
+        SM4
+        SM5
+        SM6
+        SM7
+        SM8
+        SM9
+        SM10
+        SM11
+        SM12
+        SM13
+        SM14
+        SM15
+        SM16
+        SM17
+        SM18
+        SM19
+    end
+
+    subgraph "Product Management"
+        PM1
+        PM2
+        PM3
+        PM4
+        PM5
+        PM6
+        PM7
+    end
+
+    subgraph "Catalog Management"
+        CM1
+        CM2
+        CM3
+        CM4
+    end
+
+    subgraph "Reporting"
+        R1
+        R2
+        R3
+        R4
+        R5
+        R6
+    end

@@ -1,0 +1,54 @@
+'''
+this is the BASE.HTML
+'''
+
+Steps:
+1. Create base.html
+    --- START CODE ---
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}My Django Project{% endblock %}</title>
+        
+        <!-- Bootstrap CSS -->
+        <link href="{% static 'homeapp/css/bootstrap.min.css %}" rel="stylesheet">
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'homeapp/css/styles.css' %}">
+        
+        <!-- Additional head content -->
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+        <!-- Include Header -->
+        {% include 'includes/header.html' %}
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            {% block content %}
+            <!-- Default content can go here, but it's usually overridden by child templates -->
+            {% endblock %}
+        </div>
+
+        <!-- Include Footer -->
+        {% include 'includes/footer.html' %}
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="{% static 'homeapp/js/jquery-3.5.1.slim.min.js %}"></script>
+        <script src="{% static 'homeapp/js/popper.min.js %}"></script>
+        <script src="{% static 'homeapp/js/bootstrap.min.js %}"></script>
+        
+        <!-- Custom JS -->
+        <script src="{% static 'homeapp/js/scripts.js' %}"></script>
+        
+        <!-- Additional body content -->
+        {% block extra_scripts %}{% endblock %}
+    </body>
+    </html>
+    --- END CODE ---
+
+2. Create applications.html
+
+3. Call base.html from application.html

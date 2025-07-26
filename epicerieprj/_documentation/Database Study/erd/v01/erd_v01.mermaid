@@ -1,0 +1,78 @@
+erDiagram
+    Suppliers ||--o{ SupplierAddresses : has
+    Suppliers ||--o{ SupplierContactNumbers : has
+    Suppliers ||--o{ SupplierEmailAddresses : has
+    Suppliers ||--o{ ContactPersons : has
+    Suppliers ||--o{ SupplierProductCatalog : offers
+    Products ||--o{ SupplierProductCatalog : "offered by"
+
+    Suppliers {
+        int SupplierID PK
+        varchar TIN UK
+        varchar CompanyName
+        datetime2 DateCreated
+        datetime2 DateUpdated
+        varchar Status
+    }
+
+    SupplierAddresses {
+        int AddressID PK
+        int SupplierID FK
+        varchar AddressLine1
+        varchar AddressLine2
+        varchar Barangay
+        varchar CityMunicipality
+        varchar Province
+        varchar PostalCode
+        varchar AddressType
+        bit IsPrimary
+    }
+
+    SupplierContactNumbers {
+        int ContactNumberID PK
+        int SupplierID FK
+        varchar ContactNumber
+        varchar NumberType
+        bit IsPrimary
+    }
+
+    SupplierEmailAddresses {
+        int EmailAddressID PK
+        int SupplierID FK
+        varchar EmailAddress
+        varchar EmailType
+        bit IsPrimary
+    }
+
+    ContactPersons {
+        int ContactPersonID PK
+        int SupplierID FK
+        varchar FirstName
+        varchar LastName
+        varchar Position
+        varchar EmailAddress
+        varchar ContactNumber
+        datetime2 DateCreated
+        datetime2 DateUpdated
+        varchar Status
+    }
+
+    Products {
+        int ProductID PK
+        varchar ProductName UK
+        text ProductDescription
+        varchar Category
+        varchar UnitOfMeasure
+        datetime2 DataEntryDate
+        varchar Status
+    }
+
+    SupplierProductCatalog {
+        int SupplierProductCatalogID PK
+        int SupplierID FK
+        int ProductID FK
+        decimal DealersPrice
+        date PriceEntryDate
+        varchar SupplierProductCode
+        text Notes
+    }

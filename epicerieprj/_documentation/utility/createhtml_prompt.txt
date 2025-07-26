@@ -1,0 +1,13 @@
+Create a Python program that:
+
+Asks the user to input a filename (either with or without .html extension) for a new HTML file.
+
+Asks the user to input a description for the HTML content.
+
+Copies the 'template_page.html' from the same folder to a new file with the user-specified filename (adding .html extension if not provided).
+
+Modifies the new HTML file's content by replacing all occurrences of the word 'Index' with the user-provided description.
+
+Handles potential errors like missing template file gracefully.
+
+exit only when done

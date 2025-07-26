@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Applications - My Django Project{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Applications</h1>
+        <p>This is the applications page. You can add more content here.</p>
+        
+        <!-- Example of a loop to display applications -->
+        <ul>
+            {% for app in applications %}
+                <li>{{ app.name }} - {{ app.description }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<!-- Additional scripts specific to the applications page -->
+<script>
+    console.log("This script is specific to the applications page.");
+</script>
+{% endblock %}

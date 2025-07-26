@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Home Landing Page</title>
+    <!-- Load static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homeapp/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'homeapp/css/fonts.css' %}">
+
+    <!-- Add favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'homeapp/images/favicon.ico' %}">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="{% static 'css/css2.css' %}" rel="stylesheet">
+    <!-- Others -->
+    <link href="{% static 'css/css3.css' %}" rel="stylesheet">
+    <link href="{% static 'css/media.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Include Header -->
+    {% include '../includes/header.html' %}
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Fancy Landing Page</h1>
+            <p>Your journey to amazing experiences starts here.</p>
+            <a href="#features" class="btn">Explore More</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="feature-item">
+            <h2>AllTechSolution Products</h2>
+            <p>Here are our list of products</p>
+            <ul class="left-justified-list">
+                <li>Biometrics Fingerprint Time/Attendance / Access Control</li>
+                <li>Closed Circuit TV Camera (CCTV)</li>
+                <li>LAN and WAN equipment</li>
+                <li>Wi-Fi Equipment</li>
+                <li>IP PBX</li>
+                <li>Intercoms</li>
+                <li>Earthquake Detection</li>
+            </ul>
+        </div>
+        <div class="feature-item">
+            <h2>AllTechSolution Apps</h2>
+            <p>Use the applications of AllTechSolution</p>
+            <ul class="left-justified-list">
+                <li>Create Quotation</li>
+                <li>Incoming Purchase Orders</li>
+                <li>Purchase Requisition</li>
+                <li>Create Delivery Receipts</li>
+                <li>Sales Invoice and Collection Receipt Entries</li>
+                <li>Receipt Entries</li>
+                <li>Create Check Vouchers</li>
+            </ul>
+        </div>
+        <div class="feature-item">
+            <h2>Utilities</h2>
+            <p>Click this link for the available programming utilities necessary to do the job</p>
+            <ul class="left-justified-list">
+                <li><a href="#"> Column 2 UPPERCASE</li></a>
+            </ul>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; Powered by AiTeam Pinoy Technology Inc. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Footer -->
+    {% include '../includes/footer.html' %}
+    <!-- Footer -->
+
+    <!-- JavaScript -->
+    <script src="{% static 'homeapp/js/scripts.js' %}"></script>
+</body>
+
+</html>

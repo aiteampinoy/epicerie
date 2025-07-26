@@ -1,0 +1,43 @@
+Create Virtual Environment
+	md _alltechwebserver
+	cd _alltechwebserver
+	python -m venv venv1
+
+	# where venv1 is a folder name
+
+Enable Virtual Environment
+	venv1\scripts\activate
+
+Create a django project
+	pip install django
+	django-admin startproject homeprj
+
+	# where homeprj is the project name
+	# the command will create the manage.py under homeprj
+
+Create a django apps
+	cd homeprj
+	django-admin startapp homeapp
+
+	# homeapp is the application. define this in settings.py
+
+After this, the created file structures are:
+
+homeprj\
+    manage.py
+    homeapp\
+        migrations\
+        admin.py
+        apps.py
+        models.py
+        tests.py
+        views.py
+        __init__.py
+
+    homeprj:
+        asgi.py
+        settings.py
+        urls.py
+        wsgi.py
+        __init__.py
+
